@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="36" viewBox="0 0 140 36" fill="none">
+  <rect x="0" y="2" width="32" height="32" rx="8" fill="#00408C"/>
+  <text
+    x="16"
+    y="18"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="Geologica, Arial, Helvetica, sans-serif"
+    font-size="18"
+    font-weight="700"
+    fill="#F2EEE9"
+  >M</text>
+  <text
+    x="42"
+    y="18"
+    dominant-baseline="central"
+    font-family="Geologica, Arial, Helvetica, sans-serif"
+    font-size="16"
+    font-weight="700"
+    fill="#00408C"
+  >MERIDIAN</text>
+</svg>
