@@ -1,36 +1,33 @@
-# MERIDIAN Portfolio (ЛР2)
+# MERIDIAN Portfolio (ЛР7, Next.js)
 
 ## Стек
 
-- React (Vite)
+- Next.js 14 (Pages Router)
+- React
 - CSS Modules
 - PropTypes
-- useState / props
 
-## Компоненты
+## Страницы (вариант 1)
 
-- `Button` — primary / secondary, текст и обработчик через props
-- `InputField` — хранит значение в `useState`, сообщает родителю через `onValueChange`
-- `ProjectCard` — получает `title`, `description`, `image` (и опционально `tags`) через props
+- `/` — SSR через `getServerSideProps`: статус `Open to work` и текущее время сервера
+- `/about` — SSG через `getStaticProps`: текст «Обо мне» и время сборки
 
-## Интерактивность
+Навигация между страницами — через `next/link`.
 
-1. Введите email в поле ввода.
-2. Нажмите кнопку «Смотреть проекты» или «Написать мне».
-3. Значение поля будет выведено в консоль браузера (`console.log`).
-
-## Запуск
+## Запуск (разработка)
 
 ```bash
 npm install
 npm run dev
 ```
 
-Откройте адрес из терминала (обычно `http://localhost:5173`).
+Откройте `http://localhost:3000`.
 
-## Сборка
+## Сборка и production
 
 ```bash
 npm run build
-npm run preview
+npm run start
 ```
+
+Проверка SSR/SSG: в браузере «Просмотр кода страницы» (View Page Source) — HTML с контентом приходит с сервера.

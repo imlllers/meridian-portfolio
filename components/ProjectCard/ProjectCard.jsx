@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import styles from './ProjectCard.module.css';
-import arrowIcon from '../../assets/arrow.svg';
 
 function ProjectCard({ title, description, image, tags = [] }) {
   return (
@@ -20,7 +19,7 @@ function ProjectCard({ title, description, image, tags = [] }) {
         <p className={styles.description}>{description}</p>
         <a className={styles.cta} href="#case">
           Смотреть кейс
-          <img src={arrowIcon} alt="" className={styles.icon} aria-hidden="true" />
+          <img src="/arrow.svg" alt="" className={styles.icon} aria-hidden="true" />
         </a>
       </div>
     </article>

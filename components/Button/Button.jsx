@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import styles from './Button.module.css';
-import arrowIcon from '../../assets/arrow.svg';
 
 function Button({
   children,
@@ -18,7 +17,7 @@ function Button({
   return (
     <button type={type} className={className} onClick={onClick}>
       <span>{children}</span>
-      <img src={arrowIcon} alt="" className={styles.icon} aria-hidden="true" />
+      <img src="/arrow.svg" alt="" className={styles.icon} aria-hidden="true" />
     </button>
   );
 }
