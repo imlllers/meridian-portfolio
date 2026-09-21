@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import Button from './components/Button/Button';
-import InputField from './components/InputField/InputField';
+import ContactForm from './components/ContactForm/ContactForm';
 import ProjectCard from './components/ProjectCard/ProjectCard';
 import logo from './assets/logo.svg';
 import projectCover from './assets/project-cover.webp';
@@ -15,12 +14,6 @@ const projectData = {
 };
 
 function App() {
-  const [inputValue, setInputValue] = useState('');
-
-  const handleSubmitClick = () => {
-    console.log(inputValue);
-  };
-
   return (
     <div className={styles.page}>
       <header className={styles.header}>
@@ -50,23 +43,7 @@ function App() {
             image={projectData.image}
             tags={projectData.tags}
           />
-
-          <div className={styles.panel} id="contact">
-            <h2 className={styles.panelTitle}>Связаться</h2>
-            <InputField
-              label="Email"
-              placeholder="you@studio.com"
-              onValueChange={setInputValue}
-            />
-            <div className={styles.actions}>
-              <Button variant="primary" onClick={handleSubmitClick}>
-                Смотреть проекты
-              </Button>
-              <Button variant="secondary" onClick={handleSubmitClick}>
-                Написать мне
-              </Button>
-            </div>
-          </div>
+          <ContactForm />
         </section>
       </main>
     </div>

@@ -58,29 +58,6 @@
   align-items: start;
 }
 
-.panel {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 24px;
-  background-color: var(--color-white);
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 25, 64, 0.03);
-}
-
-.panelTitle {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--color-dark-blue);
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
 @media (max-width: 860px) {
   .header {
     flex-direction: column;
