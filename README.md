@@ -1,17 +1,18 @@
-# MERIDIAN Portfolio (ЛР2)
+# MERIDIAN Portfolio (ЛР6)
 
 ## Стек
 
 - React (Vite)
-- CSS Modules
+- React Bootstrap + Bootstrap 5
 - PropTypes
 - useState / props
 
-## Компоненты
+## Что сделано (ЛР6, вариант 1)
 
-- `Button` — primary / secondary, текст и обработчик через props
-- `InputField` — хранит значение в `useState`, сообщает родителю через `onValueChange`
-- `ProjectCard` — получает `title`, `description`, `image` (и опционально `tags`) через props
+- Кастомные `Button`, `InputField`, `ProjectCard` заменены на аналоги React Bootstrap (`Button`, `Form.Control`, `Card`)
+- Макет списка проектов построен на `Container` / `Row` / `Col`
+- Адаптивная сетка карточек: 3 колонки на десктопе (`lg`), 2 на планшете (`md`), 1 на мобильном (`xs`)
+- Стили в основном через утилиты Bootstrap, без смешивания с Material UI
 
 ## Интерактивность
 

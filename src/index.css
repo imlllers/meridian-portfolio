@@ -1,41 +1,8 @@
-:root {
-  --color-dark: #2c2c2c;
-  --color-dark-blue: #00408c;
-  --color-blue: #96add6;
-  --color-orange: #e85234;
-  --color-pink: #f2d7d3;
-  --color-cream: #f2eee9;
-  --color-white: #ffffff;
-  --color-ink: #0b1f3a;
-
-  font-family: 'Geologica', system-ui, sans-serif;
-  line-height: 1.4;
-  font-weight: 400;
-  color: var(--color-ink);
-  background-color: var(--color-cream);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--color-cream);
 }
 
 #root {
   min-height: 100vh;
-}
-
-button,
-input,
-a {
-  font: inherit;
 }

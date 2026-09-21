@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './Button.module.css';
-import arrowIcon from '../../assets/arrow.svg';
+import { Button as BootstrapButton } from 'react-bootstrap';
 
 function Button({
   children,
@@ -9,17 +8,18 @@ function Button({
   type = 'button',
   onClick,
 }) {
-  const className = [
-    styles.button,
-    variant === 'secondary' ? styles.secondary : styles.primary,
-    size === 'sm' ? styles.sm : styles.md,
-  ].join(' ');
+  const bootstrapSize = size === 'sm' ? 'sm' : undefined;
+  const bootstrapVariant = variant === 'secondary' ? 'outline-secondary' : 'primary';
 
   return (
-    <button type={type} className={className} onClick={onClick}>
-      <span>{children}</span>
-      <img src={arrowIcon} alt="" className={styles.icon} aria-hidden="true" />
-    </button>
+    <BootstrapButton
+      type={type}
+      variant={bootstrapVariant}
+      size={bootstrapSize}
+      onClick={onClick}
+    >
+      {children}
+    </BootstrapButton>
   );
 }
 

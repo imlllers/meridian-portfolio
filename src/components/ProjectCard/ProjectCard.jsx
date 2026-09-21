@@ -1,29 +1,26 @@
 import PropTypes from 'prop-types';
-import styles from './ProjectCard.module.css';
-import arrowIcon from '../../assets/arrow.svg';
+import Badge from 'react-bootstrap/Badge';
+import Card from 'react-bootstrap/Card';
 
 function ProjectCard({ title, description, image, tags = [] }) {
   return (
-    <article className={styles.card}>
-      <img className={styles.cover} src={image} alt={title} />
-      <div className={styles.body}>
+    <Card className="h-100 shadow-sm">
+      <Card.Img variant="top" src={image} alt={title} />
+      <Card.Body className="d-flex flex-column">
         {tags.length > 0 ? (
-          <div className={styles.tags}>
+          <div className="mb-2 d-flex flex-wrap gap-1">
             {tags.map((tag) => (
-              <span key={tag} className={styles.tag}>
+              <Badge key={tag} bg="primary" pill>
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
         ) : null}
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
-        <a className={styles.cta} href="#case">
-          Смотреть кейс
-          <img src={arrowIcon} alt="" className={styles.icon} aria-hidden="true" />
-        </a>
-      </div>
-    </article>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text className="flex-grow-1">{description}</Card.Text>
+        <Card.Link href="#case">Смотреть кейс</Card.Link>
+      </Card.Body>
+    </Card>
   );
 }
 
