@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { validateEmail } from '../../lib/validateEmail';
 import styles from './InputField.module.css';
 
 function InputField({
@@ -24,8 +25,7 @@ function InputField({
   const handleBlur = () => {
     setIsFocused(false);
     if (value && type === 'email') {
-      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-      setIsError(!isValid);
+      setIsError(!validateEmail(value));
     }
   };
 

@@ -1,4 +1,4 @@
-# MERIDIAN Portfolio (ЛР7, Next.js)
+# MERIDIAN Portfolio (ЛР9)
 
 ## Стек
 
@@ -6,15 +6,30 @@
 - React
 - CSS Modules
 - PropTypes
+- Jest + React Testing Library (unit)
+- Playwright (E2E)
 
-## Страницы (вариант 1)
+## Тесты (вариант 1)
 
-- `/` — SSR через `getServerSideProps`: статус `Open to work` и текущее время сервера
-- `/about` — SSG через `getStaticProps`: текст «Обо мне» и время сборки
+### Unit (Jest)
 
-Навигация между страницами — через `next/link`.
+- `validateEmail` — проверка валидации email
+- `ProjectCard` — отображение `title` и `description` из props
 
-## Запуск (разработка)
+```bash
+npm test
+```
+
+### E2E (Playwright)
+
+Сценарий «Отправка сообщения»: переход к `#contact`, заполнение имени/email/сообщения, клик «Отправить», проверка успеха. Запрос к API ЛР8 (`/api/projects`) перехватывается через `page.route()`.
+
+```bash
+npx playwright install chromium
+npm run test:e2e
+```
+
+## Запуск приложения
 
 ```bash
 npm install
@@ -22,12 +37,3 @@ npm run dev
 ```
 
 Откройте `http://localhost:3000`.
-
-## Сборка и production
-
-```bash
-npm run build
-npm run start
-```
-
-Проверка SSR/SSG: в браузере «Просмотр кода страницы» (View Page Source) — HTML с контентом приходит с сервера.

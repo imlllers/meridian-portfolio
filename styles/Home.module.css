@@ -79,6 +79,12 @@
   margin: 0;
 }
 
+.success {
+  margin: 0;
+  font-weight: 600;
+  color: #1f5c2e;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
