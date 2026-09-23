@@ -1,28 +1,34 @@
-# MERIDIAN Portfolio (ЛР10, a11y)
+# MERIDIAN Portfolio (ЛР11, security)
 
-## Стек
+## Full-stack
 
-- Next.js 14 (Pages Router)
-- React
-- CSS Modules
-- PropTypes
+- Фронт: этот репозиторий (`lab11/security`)
+- API: `meridian-portfolio-api` (`lab11/security`) на порту `5001`
 
-## Доступность (ЛР10, вариант 1)
+## XSS-демо (вариант 1)
 
-Исправлены ключевые нарушения WCAG на главной, в форме контактов и карточках проектов:
+Поле «Сообщение» сохраняется в API и выводится в блоке «Последние сообщения» через `dangerouslySetInnerHTML`.
 
-1. Структура заголовков: `h1` → `h2` (секции) → `h3` (карточка проекта)
-2. Метки формы связаны с полями через `htmlFor` / `id`
-3. Осмысленные `alt` у изображений проектов
-4. Улучшен цветовой контраст (теги, ссылки, placeholder, ошибки) и видимый `:focus-visible`
+1. **До защиты** (в API `.env`: `SANITIZE_INPUT=false`, перезапуск API):  
+   в сообщение вставьте `<img src=x onerror=alert('XSS PoC')>` → alert сработает.
+2. **После защиты** (`SANITIZE_INPUT=true`): тот же payload → скрипт не выполняется, опасные теги удалены.
 
 ## Запуск
+
+Терминал 1 (API):
+
+```bash
+cd ../meridian-portfolio-api
+npm run dev
+```
+
+Терминал 2 (фронт):
 
 ```bash
 npm install
 npm run dev
 ```
 
-Откройте `http://localhost:3000`.
+Откройте `http://localhost:3000`, форма контактов внизу страницы.
 
-Для аудита: расширение Axe DevTools и/или Lighthouse → Accessibility.
+Заголовки Helmet/CSP смотрите в DevTools → Network → запрос к `http://localhost:5001/api/projects` → Response Headers.

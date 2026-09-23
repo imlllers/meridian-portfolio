@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from './Button/Button';
 import InputField from './InputField/InputField';
 import inputStyles from './InputField/InputField.module.css';
@@ -6,7 +6,7 @@ import { validateEmail } from '../lib/validateEmail';
 import styles from '../styles/Home.module.css';
 
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/projects';
+  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api/projects';
 
 function ContactForm() {
   const [name, setName] = useState('');
@@ -15,6 +15,27 @@ function ContactForm() {
   const [isMessageFocused, setIsMessageFocused] = useState(false);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
+  const [messages, setMessages] = useState([]);
+
+  const loadMessages = async () => {
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) {
+        return;
+      }
+      const data = await response.json();
+      const contactMessages = data.filter((item) =>
+        String(item.title || '').startsWith('Сообщение от'),
+      );
+      setMessages(contactMessages.slice(0, 5));
+    } catch (err) {
+      // API может быть выключен — форма всё равно работает локально по ошибке submit
+    }
+  };
+
+  useEffect(() => {
+    loadMessages();
+  }, []);
 
   const handleSubmit = async () => {
     setError('');
@@ -47,6 +68,8 @@ function ContactForm() {
       }
 
       setStatus('success');
+      setMessage('');
+      await loadMessages();
     } catch (err) {
       setStatus('idle');
       setError('Не удалось отправить сообщение');
@@ -111,6 +134,23 @@ function ContactForm() {
         <p role="status" className={styles.success} aria-live="polite">
           Сообщение успешно отправлено
         </p>
+      ) : null}
+
+      {messages.length > 0 ? (
+        <div className={styles.messagesBlock}>
+          <h3 className={styles.messagesTitle}>Последние сообщения</h3>
+          <ul className={styles.messagesList}>
+            {messages.map((item) => (
+              <li key={item._id} className={styles.messageItem}>
+                <strong>{item.title}</strong>
+                <div
+                  className={styles.messageBody}
+                  dangerouslySetInnerHTML={{ __html: item.description || '' }}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : null}
     </section>
   );

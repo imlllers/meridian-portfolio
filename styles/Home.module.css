@@ -132,6 +132,39 @@
   color: #1f5c2e;
 }
 
+.messagesBlock {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.messagesTitle {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-dark-blue);
+}
+
+.messagesList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.messageItem {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--color-cream);
+}
+
+.messageBody {
+  margin-top: 6px;
+  word-break: break-word;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
