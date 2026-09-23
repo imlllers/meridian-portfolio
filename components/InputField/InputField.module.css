@@ -7,8 +7,8 @@
 
 .label {
   font-size: 12px;
-  font-weight: 500;
-  color: var(--color-dark);
+  font-weight: 600;
+  color: #1a1a1a;
 }
 
 .field {
@@ -17,36 +17,37 @@
   box-sizing: border-box;
   padding: 0 16px;
   border-radius: 12px;
-  border: 1.5px solid var(--color-dark);
+  border: 1px solid #1a1a1a;
   background-color: var(--color-white);
-  color: var(--color-dark);
+  color: #1a1a1a;
   font-family: inherit;
   font-size: 14px;
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  transition: border-color 0.15s ease, border-width 0.15s ease, background-color 0.15s ease;
 }
 
 .field::placeholder {
-  color: var(--color-dark);
-  opacity: 0.55;
+  color: #595959;
+  opacity: 1;
 }
 
+.field:focus-visible,
 .focused {
-  border-color: var(--color-dark);
+  border-color: var(--color-dark-blue);
   border-width: 1.5px;
   box-shadow: none;
 }
 
 .error {
-  border-color: var(--color-orange);
+  border-color: #b33a22;
   background-color: var(--color-white);
-  color: var(--color-orange);
+  color: #b33a22;
 }
 
 .errorText {
   font-size: 12px;
-  font-weight: 500;
-  color: var(--color-orange);
+  font-weight: 600;
+  color: #b33a22;
 }
 
 .textarea {

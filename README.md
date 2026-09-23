@@ -1,4 +1,4 @@
-# MERIDIAN Portfolio (ЛР9)
+# MERIDIAN Portfolio (ЛР10, a11y)
 
 ## Стек
 
@@ -6,30 +6,17 @@
 - React
 - CSS Modules
 - PropTypes
-- Jest + React Testing Library (unit)
-- Playwright (E2E)
 
-## Тесты (вариант 1)
+## Доступность (ЛР10, вариант 1)
 
-### Unit (Jest)
+Исправлены ключевые нарушения WCAG на главной, в форме контактов и карточках проектов:
 
-- `validateEmail` — проверка валидации email
-- `ProjectCard` — отображение `title` и `description` из props
+1. Структура заголовков: `h1` → `h2` (секции) → `h3` (карточка проекта)
+2. Метки формы связаны с полями через `htmlFor` / `id`
+3. Осмысленные `alt` у изображений проектов
+4. Улучшен цветовой контраст (теги, ссылки, placeholder, ошибки) и видимый `:focus-visible`
 
-```bash
-npm test
-```
-
-### E2E (Playwright)
-
-Сценарий «Отправка сообщения»: переход к `#contact`, заполнение имени/email/сообщения, клик «Отправить», проверка успеха. Запрос к API ЛР8 (`/api/projects`) перехватывается через `page.route()`.
-
-```bash
-npx playwright install chromium
-npm run test:e2e
-```
-
-## Запуск приложения
+## Запуск
 
 ```bash
 npm install
@@ -37,3 +24,5 @@ npm run dev
 ```
 
 Откройте `http://localhost:3000`.
+
+Для аудита: расширение Axe DevTools и/или Lighthouse → Accessibility.
